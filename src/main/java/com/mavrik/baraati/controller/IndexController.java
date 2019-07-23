@@ -19,4 +19,10 @@ public class IndexController {
 		
 		return "master/category/addCategory";
 	}
+	
+	@GetMapping("showSubCategoryForm")
+	public String showSubCategoryForm(Model model) {
+		
+		return "master/subcategory/addSubCategory";
+	}
 }

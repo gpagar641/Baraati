@@ -9,5 +9,5 @@ import com.mavrik.baraati.model.Categories;
 public interface CategoryRepository extends JpaRepository<Categories,Integer>{
 
 	
-	List<Categories> findAllByIsUsed(int isUsed);
+	List<Categories> findByIsUsed(int isUsed);
 }

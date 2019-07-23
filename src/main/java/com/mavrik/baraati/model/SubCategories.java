@@ -13,20 +13,36 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="m_sub_categories")
+@Table(name = "m_sub_categories")
 public class SubCategories {
-
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="sub_cat_id", length=11)
+	@Column(name = "sub_cat_id", length = 11)
 	private int subCatId;
-	
-	@Column(name="sub_cat_name")
+
+	@Column(name = "sub_cat_name")
 	private String subCatName;
-	
-	@Column(name="isUsed")
-	private int is_used;
+
+	@Column(name = "is_used")
+	private int isUsed;
+
+	@Column(name = "category_id")
+	private int categoryId;
+
+	/**
+	 * @return the categoryId
+	 */
+	public int getCategoryId() {
+		return categoryId;
+	}
+
+	/**
+	 * @param categoryId the categoryId to set
+	 */
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
 
 	/**
 	 * @return the subCatId
@@ -56,28 +72,17 @@ public class SubCategories {
 		this.subCatName = subCatName;
 	}
 
-	/**
-	 * @return the is_used
-	 */
-	public int getIs_used() {
-		return is_used;
+	public int getIsUsed() {
+		return isUsed;
 	}
 
-	/**
-	 * @param is_used the is_used to set
-	 */
-	public void setIs_used(int is_used) {
-		this.is_used = is_used;
+	public void setIsUsed(int isUsed) {
+		this.isUsed = isUsed;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
-		return "SubCategories [subCatId=" + subCatId + ", subCatName=" + subCatName + ", is_used=" + is_used + "]";
+		return "SubCategories [subCatId=" + subCatId + ", subCatName=" + subCatName + ", isUsed=" + isUsed
+				+ ", categoryId=" + categoryId + "]";
 	}
-	
-	
-	
 }

@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.mavrik.baraati.model.Categories;
+import com.mavrik.baraati.model.SubCategories;
 import com.mavrik.baraati.repository.CategoryRepository;
+import com.mavrik.baraati.repository.SubCategoryRepository;
 
 @Controller
 @RequestMapping("category")
@@ -20,6 +22,9 @@ public class CategoryController {
 
 	@Autowired
 	CategoryRepository categoryRepository;
+	
+	@Autowired
+	SubCategoryRepository subCategoryRepository;
 
 	@PostMapping("/insertCategory")
 	public Categories insertCategory(HttpServletRequest request, @RequestBody Categories categories) {
@@ -31,7 +36,21 @@ public class CategoryController {
 	public List<Categories> getAllCategories() {
 		
 		
-		return categoryRepository.findAllByIsUsed(0);
+		return categoryRepository.findByIsUsed(0);
+	}
+	
+	@PostMapping("/insertSubCategory")
+	public SubCategories insertCategory(HttpServletRequest request, @RequestBody SubCategories subCategories) {
+
+		return subCategoryRepository.save(subCategories);
+	}
+	
+	
+	@GetMapping("/getAllSubCategories")
+	public List<SubCategories> getAllSubCategories() {
+		
+		
+		return subCategoryRepository.findByIsUsed(0);
 	}
 
 }
